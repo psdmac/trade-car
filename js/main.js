@@ -20,6 +20,13 @@ $(document).ready(function() {
       youtube.css('z-index','2');
     }
   });
+  $('.owl-carousel').owlCarousel({
+    loop:true,
+    items: 1,
+    autoplay:true,
+    autoplayTimeout:5000,
+    autoplayHoverPause:true
+  })
 });
 
 var sellSubmitted = undefined;
