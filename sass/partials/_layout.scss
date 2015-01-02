@@ -104,16 +104,16 @@
     @include span-columns(12, 12);
     font-size: 18px;
     &:nth-child(2) {
-      border-top: 1px solid #9a9a9a;
-      border-bottom: 1px solid #9a9a9a; 
+      border-top: 1px solid #d9d9d9;
+      border-bottom: 1px solid #d9d9d9; 
     }
     @include at-breakpoint($small) {
       @include span-columns(4, 12);
       &:nth-child(2) {
         border-top: 0;
         border-bottom: 0;
-        border-right: 1px solid #9a9a9a;
-        border-left: 1px solid #9a9a9a; 
+        border-right: 1px solid #d9d9d9;
+        border-left: 1px solid #d9d9d9; 
       }
       &:nth-child(3n) {
         @include omega;
