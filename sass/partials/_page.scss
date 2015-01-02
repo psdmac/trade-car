@@ -1,0 +1,88 @@
+//-----------------------------------------------
+// The following html5-boilerplate styles should
+// probably be customized for each site
+//-----------------------------------------------
+body, select, input, textarea {
+  color: $font-color;
+  // Set your base font here, to apply evenly
+  // font-family: Georgia, serif;
+}
+
+//-----------------------------------
+// Add your own custom styles below
+//-----------------------------------
+
+body {
+  background: $background;
+  font-family: \5FAE\8EDF\6B63\9ED1\9AD4, \65B0\7D30\660E\9AD4, "Times New Roman", Georgia, Serif, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#container {}
+
+.main-container {
+  @include container;
+  // @include susy-grid-background;
+}
+
+
+.ad-wrapper {
+  .ad-inner {
+    display: block;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+#sell-result-swiper {
+  @include box-sizing(border-box);
+  padding: 0 10% 70px 10%;
+  .sell-result-wrapper {
+    @include span-columns(12, 12);
+  }
+  .left-column {
+    @include span-columns(12, 12);
+    @include at-breakpoint($small) {
+      @include span-columns(4, 12);
+    }
+    @include at-breakpoint($large) {
+      @include span-columns(5, 12);
+    }
+    @include box-sizing(border-box);
+    padding: 20px;
+    img {
+      width: 100%;
+    }
+  }
+  .right-column {
+    @include span-columns(12, 12);
+    @include at-breakpoint($small) {
+      @include span-columns(8, 12);
+      @include omega;
+      font-size: 16px;
+    }
+    @include at-breakpoint($large) {
+      @include span-columns(7, 12);
+      @include omega;
+      font-size: 18px;
+    }
+    
+    @include box-sizing(border-box);
+    padding: 20px;
+    
+  }
+}
+.left.carousel-control, .right.carousel-control {
+  @include background-image(linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%))
+}
+.carousel-indicators li {
+  background-color: #ccc;
+}
+.carousel-indicators.active {
+  background-color: #ccc;
+}

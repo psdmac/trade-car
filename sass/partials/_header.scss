@@ -1,0 +1,103 @@
+.brand {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  width: 192px;
+  height: 58px;
+  background-image: url(http://wowcar.tw/images/logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 27px auto;
+  @include at-breakpoint(51em 12) {
+    @include inline-block();
+    margin: 27px;
+    float: left;
+  }
+}
+header {
+  overflow: hidden;
+  #menu-toggle {
+    &:checked + nav {
+      max-height: 290px;
+    }
+  }
+  nav {
+    max-height: 0;
+    overflow: hidden;
+    @include transition(max-height 0.3s);
+    @include at-breakpoint(51em 12) {
+      @include inline-block();
+      margin: 28px 0;
+      float: right;
+      max-height: 290px;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      @include inline-block();
+      width: 100%;
+      @include at-breakpoint(51em 12) {
+        width: auto;
+      }
+    }
+    li {
+      margin: 16px 3px;
+      list-style-type: none;
+      height: 24px;
+      line-height: 24px;
+      vertical-align: baseline;
+      text-align: center;
+      @include at-breakpoint(51em 12) {
+        @include inline-block();
+        border-bottom: 0;
+        border-right: 1px solid #3c3c3c;
+      }
+      &:last-child {
+        border-right: 0;
+      }
+    }
+    a {
+      @include inline-block();
+      padding-right: 8px;
+      vertical-align: baseline;
+      color: #3c3c3c;
+      text-decoration: none;
+      font-size: 18px;
+      &:hover {
+        text-decoration: underline;
+      }
+      span {
+        @include inline-block();
+        vertical-align: top;
+        width: 24px;
+        height: 24px;
+        margin-right: 3px;
+        img {
+          width: 100%;
+        }
+      }
+      &.buy {
+        color: #f72a37;
+      }
+      &.sell {
+        color: #369ad5;
+      }
+    }
+  }
+  label {
+    font-size: 24px;
+    padding: 28px 15px;
+    @include inline-block();
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #3c3c3c;
+    @include at-breakpoint(51em 12) {
+      display: none;
+    }
+  }
+}
+#menu-toggle {
+  display: none;
+}
