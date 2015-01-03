@@ -6,8 +6,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>庫存好車</title>
-    <meta name="description" content="我們解決中古車黑心買賣問題，提倡透明銷售客製服務真心在乎你要的是什麼，購買二手車、寄售中古車、刊登中古車、二手車資訊線上服務，讓你輕鬆買好車。">
+    <title>庫存好車 - 一條龍式的中古車服務讓你買車安心不買貴</title>
+    <meta name="description" content="我們的中古車全都經過專家分等每台車最少40張照片，不怕買到黑心中古車，讓你最安心的二手車，買二手車就像德國萊茵一樣細心檢查，讓你看清楚每台車。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--
@@ -33,8 +33,8 @@
     <meta property="og:type" content="website">
     <meta property="fb:admins" content="1521106495">
     <meta property="fb:app_id" content="567965303332474">
-    <meta property="og:title" content="WOWCAR - 中古車 二手車 買車 賣車 認證 保固">
-    <meta name="og:description" content="我們解決中古車黑心買賣問題，提倡透明銷售客製服務真心在乎你要的是什麼，購買二手車、寄售中古車、刊登中古車、二手車資訊線上服務，讓你輕鬆買好車。">
+    <meta property="og:title" content="庫存好車 - 一條龍式的中古車服務讓你買車安心不買貴">
+    <meta name="og:description" content="我們的中古車全都經過專家分等每台車最少40張照片，不怕買到黑心中古車，讓你最安心的二手車，買二手車就像德國萊茵一樣細心檢查，讓你看清楚每台車。">
     <meta property="og:image" content="http://wowcar.tw/og/home.jpg">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -94,89 +94,74 @@
         </div>
       </div>
     </section>
-
-    <section id="main-service">
-      <div class="main-container">
-        <h2>我們的服務</h2>
-        <div class="service-grid-wrapper">
-          <div class="service-item">
-            <div class="title">
-              <h3>庫存好車</h3>
+    
+    <div class="buy-used-cars-wrapper main-container" ng-controller="BuyCtrl">
+      <section class="buy-used-cars">
+        <section class="filter-wrapper">
+          <section class="brand-filter filter">
+            <p class="title">品牌</p>
+            <ul>
+              <li><a href="">AUDI</a></li>
+              <li><a href="">Acura</a></li>
+              <li><a href="">BMW</a></li>
+              <li><a href="">Bentley</a></li>
+              <li><a href="">Hummer</a></li>
+              <li><a href="">Infiniti</a></li>
+              <li><a href="">Lamborghini</a></li>
+              <li><a href="">Land Rover</a></li>
+              <li><a href="">Lexus</a></li>
+              <li><a href="">MINI</a></li>
+              <li><a href="">Mercedes-Benz</a></li>
+              <li><a href="">Porsche</a></li>
+              <li><a href="">Rolls-Royce</a></li>
+            </ul>
+          </section>
+          <section class="model-filter filter">
+            <p class="title">車型</p>
+            <ul>
+              <li><a href="">SUV</a></li>
+              <li><a href="">MPV</a></li>
+              <li><a href="">跑車</a></li>
+              <li><a href="">大型車</a></li>
+              <li><a href="">中型車</a></li>
+              <li><a href="">小型車</a></li>
+            </ul>
+          </section>
+        </section>
+        <section class="car-results">
+          <div class="car-result" ng-repeat="car in cars">
+            <div class="img-wrapper">
+              <a href="#" class="img-link">
+                <img ng-src="{{car['圖片']}}" alt="">
+              </a>
+              <a href="#" class="more">
+                <i class="fa fa-search-plus"></i>
+              </a>
             </div>
-            <a href="#" class="service-icon">
-              <img src="images/庫存好車.png" alt="庫存好車">
-            </a>
-            <p class="description">目前已經在國內的車輛，選定車輛，辦好手續開回家。</p>
-            <div class="service-link-wrapper">
-              <a href="" class="service-link">進入車庫</a>
+            <div class="car-description">
+              <a href="" class="title">
+                {{car['年份']}} {{car['廠牌']}} {{car['車型']}}
+              </a>
+              <div class="car-price">
+                $ {{car['價格']/10000 | number: 1}} 萬
+              </div>
+              <ul class="detail-list">
+                <li>{{car['里程']}}</li>
+                <li>{{car['外觀']}}色</li>
+                <li>{{car['內裝']}}色內裝</li>
+              </ul>
+              <div class="label-wrapper">
+                <span class="label label-primary">保固</span>
+                <span class="label label-warning">低里程</span>
+                <span class="label label-info">CARFAX</span>
+                <span class="label label-success">認證</span>
+              </div>
             </div>
           </div>
-          <div class="service-item">
-            <div class="title">
-              <h3>客製尋車</h3>
-            </div>
-            <a href="#" class="service-icon">
-              <img src="images/客製尋車.png" alt="客製尋車">
-            </a>
-            <p class="description">庫存沒有喜歡的，留下你的需求，我們幫你找。</p>
-            <div class="service-link-wrapper">
-              <a href="" class="service-link">填寫需求</a>
-            </div>
-          </div>
-          <div class="service-item">
-            <div class="title">
-              <h3>租賃/貸款</h3>
-            </div>
-            <a href="#" class="service-icon">
-              <img src="images/不怕人生地不熟.png" alt="不怕人生地不熟">
-            </a>
-            <p class="description">小資也能開名車，貸款或租賃都是好方法。</p>
-            <div class="service-link-wrapper">
-              <a href="" class="service-link">立即試算</a>
-            </div>
-          </div>
-          <div class="service-item">
-            <div class="title">
-              <h3>以車換車</h3>
-            </div>
-            <a href="#" class="service-icon">
-              <img src="images/賣好價.png" alt="賣好價">
-            </a>
-            <p class="description">喜新厭舊是正常的狀況，以車換車，讓你年年開新車。</p>
-            <div class="service-link-wrapper">
-              <a href="" class="service-link">咨詢顧問</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <div id="service-warranty">
-      <h2>我們的理念</h2>
-      <div class="main-container">
-        <div class="warrantly-wrapper">
-          <div class="warrantly">
-            <div class="fast-img icon">
-              <img src="images/fast.png" alt="快速簡單">
-            </div>
-            <div class="solgan wcl-06">專人快速貼心服務</div>
-          </div>
-          <div class="warrantly">
-            <div class="honer-img icon">
-              <img src="images/honer.png" alt="誠實">
-            </div>
-            <div class="solgan wcl-06">誠實透明拒絕欺騙</div>
-          </div>
-          <div class="warrantly">
-            <div class="cheap-img icon">
-              <img src="images/cheap.png" alt="低於市價">
-            </div>
-            <div class="solgan wcl-06">保固服務絕不卸責</div>
-          </div>
-        </div>
-      </div>
+        </section>
+      </section>
     </div>
+    
     
 
     <footer>
@@ -225,7 +210,8 @@
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="js/vendor/jquery.valid8.js"></script>
-    <script src="js/vendor/owl.carousel.min.js"></script>
+    <script src="js/vendor/owl.carousel.min.js"></script> 
+    <script src="js/brand.js"></script>
     <script src="js/main.js"></script>
 
     <!-- Facebook SDK. -->
