@@ -1,6 +1,6 @@
 footer {
   @include span-columns(12, 12);
-  background: #3c3c3c;
+  background: $blue;
   color: #f1f1f1;
   @include box-sizing(border-box);
   padding: 8px;

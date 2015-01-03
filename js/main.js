@@ -66,24 +66,3 @@ myApp.directive('bindSubmit', [
   }
 ]);
 
-myApp.directive('bindSubscribe', [
-  function() {
-    return { 
-      link: function(scope, el, attrs) {
-        scope.subscribeSubmitted = false;
-        $('#entry_935672296').val(window.navigator.userAgent);
-        el.on('submit', function () {
-          scope.subscribeSubmitted = true;
-          $('#subscribe-ss-submit').attr('disabled', true);
-        });
-        $('#subscribe_iframe').on('load', function() {
-          if(scope.subscribeSubmitted) {
-            alert('訂閱完成');
-            $('#subscribe-ss-submit').attr('disabled', false);
-            $('#entry_1621421538').val('');
-          }
-        });
-      }
-    };
-  }
-]);
