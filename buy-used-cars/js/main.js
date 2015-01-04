@@ -1,32 +1,20 @@
 $(document).ready(function() {
-  $('#sell-car').on('click', function() {
-    $('#sell-modal').modal();
-  });
-  $('#buy-car').on('click', function() {
-    $('#buy-modal').modal();
-  });
-  $('.sell-btn').on('click', function (e) {
-    e.preventDefault();
-    $('#sell-modal').modal('hide');
-    $('#sell-form-modal').modal();
-    $('#sell-ss-form').scope().detectUserInfo();
-  });
-  $('#play-intro').on('click', function(e) {
-    // console.log('click');
-    if ($('html').hasClass('no-touch')) {
-      e.preventDefault();
-      var youtube = $('#youtube-wrapper');
-      youtube.html('<iframe src="//www.youtube.com/embed/JoS6FxByU8U" frameborder="0" allowfullscreen></iframe>');
-      youtube.css('z-index','2');
-    }
-  });
   $('.owl-carousel').owlCarousel({
     loop:true,
     items: 1,
     autoplay:true,
     autoplayTimeout:5000,
     autoplayHoverPause:true
-  })
+  });
+  $('a[target="_self"]').on('click', function() {
+    NProgress.start();
+    setTimeout(function() {
+      NProgress.set(0.4);
+    }, 1000);
+    setTimeout(function() {
+      NProgress.done();
+    }, 3000);
+  });
 });
 
 var sellSubmitted = undefined;
@@ -106,98 +94,6 @@ myApp.controller('BuyCtrl', ['$scope','$timeout', function($scope, $timeout) {
     gallery.init();
   }
 }]);
-
-// var cars = 
-// [
-//   {
-//     image : '2D00A2952D6521A2110118247678A63B_800x533.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '2F9F2378ECCAABCE79A5D09C2077B63E_690x460.JPG@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '3B3AFB8C1CD14E14F41DD4FEA185DC01_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '5D6E5A94BC9EBB94C8E049A4A6F3355B_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '5D9028F0682D3866CEBF4E8AE6FC3C3C_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '5E6316638F9702714A1E28BDD96D26AB_800x600.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '6C53487489FF8416465591211699F836_800x600.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '6F5FE386ED7DA998FF40CA7F092269F2_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '57CAEDA89E64188A18276AB00A4B35F2_5184x3456.JPG@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '61EF52FA7F0457CF1B9F1AAB5805771A_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '740DC9C4546E7BAD984DFF100E942258_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '767D9489748161689D4A40CE47D80CC6_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : '00941221E6ACD55C1E04177600DC6FC1_694x460.JPG@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : 'A56EFD1DDBDD0BF55983B88512D3ED23_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : 'A134D68C38F5BD912313EFE1E2C1C7B9_613x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : 'A3553F4C0C58F4D334A6D489AB388023_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : 'B09CDE601441C5FA9B4795D3291FF25B_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : 'B049C5A61202BA3712A38E1022B900FB_800x600.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : 'CBDED2C4AB2B09F47287AE881054C9E8_5184x3456.JPG@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : 'EB9D4A08165538CFED8D2D51692AB5F1_4352x3264.JPG@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : 'F8CD869F6A16CBE05687DA257FD183D1_690x460.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    },
-//   {
-//     image : 'FC3997614BE48BD51E6CA0CA2A630066_1024x682.jpg@1e_240w_160h_1c_0i_1o_90Q_1x.jpg',
-//     brand : 'BMW' 
-//    }
-// ];
 
 
 var cars = [
