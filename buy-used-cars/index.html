@@ -134,7 +134,7 @@
           <div class="car-result" ng-repeat="car in cars">
             <div class="img-wrapper">
               <a href="#" class="img-link">
-                <img ng-src="{{car['圖片']}}" alt="">
+                <img class="lazy" data-src="{{car['圖片']}}" alt="">
               </a>
               <a href="#" class="more" 
                  ng-click="$event.stopPropagation();
@@ -278,11 +278,13 @@
     
     <!-- Add your site or application content here -->
     <script src="js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="js/vendor/underscore-min.js"></script>
     <script src="js/vendor/angular.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="js/vendor/jquery.valid8.js"></script>
-    <script src="js/vendor/owl.carousel.min.js"></script> 
+    <script src="js/vendor/owl.carousel.min.js"></script>
+    <script src="js/vendor/jquery.lazy.min.js"></script> 
     <script src="js/vendor/photoswipe.min.js"></script>
     <script src="js/vendor/photoswipe-ui-default.min.js"></script>
     <script src="js/brand.js"></script>

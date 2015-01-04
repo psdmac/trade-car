@@ -66,19 +66,35 @@ myApp.directive('bindSubmit', [
   }
 ]);
 
-myApp.controller('BuyCtrl', ['$scope', function($scope) {
-  $scope.cars = cars;
+myApp.controller('BuyCtrl', ['$scope','$timeout', function($scope, $timeout) {
+  $scope.cars = _.shuffle(cars);
+  $timeout(function() {
+    $("img.lazy").lazy();
+  }, 100);
 
   $scope.getPhotoSwipe = function(link) {
     console.log(link);
     console.log(carImages[link]);
+    if(!carImages[link]) {
+      alert('這台車沒有預覽照片');
+    }
     var items = [];
     angular.forEach(carImages[link], function(img) {
-      this.push({ 
-        'src' : 'http://wowcar.tw/'+link+'/'+img.image,
-        'w': 956,
-        'h': 540
-      });
+      if(img['註解'].length) {
+        this.push({ 
+          'src' : 'http://wowcar.tw/'+link+'/'+img.image,
+          'w': 956,
+          'h': 540,
+          'title': img['名稱']+' - '+img['註解']
+        });
+      } else {
+        this.push({ 
+          'src' : 'http://wowcar.tw/'+link+'/'+img.image,
+          'w': 956,
+          'h': 540,
+          'title': img['名稱']
+        });
+      }
     }, items);
     console.log(items);
     var pswpElement = document.querySelectorAll('.pswp')[0];
