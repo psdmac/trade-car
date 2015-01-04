@@ -1,32 +1,14 @@
 $(document).ready(function() {
-  $('#sell-car').on('click', function() {
-    $('#sell-modal').modal();
-  });
-  $('#buy-car').on('click', function() {
-    $('#buy-modal').modal();
-  });
-  $('.sell-btn').on('click', function (e) {
-    e.preventDefault();
-    $('#sell-modal').modal('hide');
-    $('#sell-form-modal').modal();
-    $('#sell-ss-form').scope().detectUserInfo();
-  });
-  $('#play-intro').on('click', function(e) {
-    // console.log('click');
-    if ($('html').hasClass('no-touch')) {
-      e.preventDefault();
-      var youtube = $('#youtube-wrapper');
-      youtube.html('<iframe src="//www.youtube.com/embed/JoS6FxByU8U" frameborder="0" allowfullscreen></iframe>');
-      youtube.css('z-index','2');
-    }
-  });
   $('.owl-carousel').owlCarousel({
     loop:true,
     items: 1,
     autoplay:true,
     autoplayTimeout:5000,
     autoplayHoverPause:true
-  })
+  });
+  $('a[target="_self"]').on('click', function() {
+    NProgress.start();
+  });
 });
 
 var sellSubmitted = undefined;
