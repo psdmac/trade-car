@@ -68,6 +68,27 @@ myApp.directive('bindSubmit', [
 
 myApp.controller('BuyCtrl', ['$scope', function($scope) {
   $scope.cars = cars;
+
+  $scope.getPhotoSwipe = function(link) {
+    console.log(link);
+    console.log(carImages[link]);
+    var items = [];
+    angular.forEach(carImages[link], function(img) {
+      this.push({ 
+        'src' : 'http://wowcar.tw/'+link+'/'+img.image,
+        'w': 956,
+        'h': 540
+      });
+    }, items);
+    console.log(items);
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    var options = {
+      shareEl: false,
+      index: 0
+    };
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
+  }
 }]);
 
 // var cars = 
