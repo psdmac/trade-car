@@ -1,0 +1,13 @@
+.slider-wrapper {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background-color: #fff;
+  .item {
+    width: 100%;
+    height: 400px;
+    position: relative;
+  }
+}
